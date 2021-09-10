@@ -29,4 +29,5 @@ setuptools.setup(
     packages=setuptools.find_packages(),
     install_requires=requirements,
     classifiers=info["__classifiers__"],
+    include_package_data=True,
 )
