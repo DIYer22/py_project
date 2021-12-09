@@ -1,12 +1,32 @@
-﻿tmp_*
+﻿# Customized
+tmp_*
 
-# Python:
-*.py[cod]
-*.so
-*.egg
-*.egg-info
-dist
-build
-.ipynb_checkpoints
-*.py.bak
-*.ignore.*
+# ignore
+.vscode
+*.pyc
+__pycache__/
+
+# vim swap file
+*.swp
+
+# coverage report
+test-results/
+htmlcov/
+.coverage
+
+# Distribution / packaging
+build/
+dist/
+eggs/
+.eggs/
+*.egg-info/
+
+# sphinx
+/docs/api
+/docs/_build
+
+# mypy cache
+.mypy_cache/
+
+# tmp files
+*~
