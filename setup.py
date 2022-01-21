@@ -6,8 +6,11 @@ import os
 package_name = "py_project"
 here = os.path.dirname(os.path.realpath(__file__))
 
-with open("requirements.txt") as f:
-    requirements = [line.strip() for line in f]
+if os.path.isfile("requirements.txt"):
+    with open("requirements.txt") as f:
+        requirements = [line.strip() for line in f]
+else:
+    requirements = []
 
 with open("README.md", encoding="utf-8") as f:
     long_description = f.read()
