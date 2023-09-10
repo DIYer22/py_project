@@ -9,6 +9,9 @@ It will also automatically execute "git init".
 
 
 **Upload project to PyPI**
-```
+```bash
 python setup.py sdist upload
+
+# Test by pip install
+pip install project_name
 ```
