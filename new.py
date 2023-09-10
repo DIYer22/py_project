@@ -49,6 +49,17 @@ def main():
     if len(sys.argv) != 2:
         sys.stderr.write(
             """Usage: python new.py project_name\n
+
+This file will perform the following operations as per your request:
+
+1. Copy the source directory to a new directory and rename it as `project_name/`
+2. Rename `project_name/py_project` as `project_name/project_name`
+3. Replace all occurrences of `py_project` with `project_name` in any `.py` and `.md` files
+4. Execute `git init` and add all the files to git
+5. Remove `requirements.txt` and `doc/` from the git added files
+6. Commit the changes with the commit message "Init of {project_name}"
+
+Chinese:
 这个文件会按照你的要求执行以下操作：
 
 1. 复制源目录到新的目录下，并重命名为 `project_name/`
@@ -76,6 +87,8 @@ python new.py project_name
     remove(dest_dir, "__pycache__")
     remove(dest_dir, "*.pyc")
     remove(dest_dir, ".git")
+    with open(os.path.join(dest_dir, "README.md"), "w") as f:
+        f.write("# " + project_name + "\n")
 
     renamed_path = os.path.join(dest_dir, project_name)
     os.rename(os.path.join(dest_dir, "py_project"), renamed_path)
