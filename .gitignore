@@ -2,6 +2,7 @@
 tmp_*
 
 # ignore
+*.zip
 .vscode
 *.pyc
 __pycache__/
