@@ -25,7 +25,7 @@ def remove(dirr, glob_match):
 
 def replace_text_in_files(directory, old, new):
     for path in Path(directory).rglob("*"):
-        if path.suffix in (".py", ".md"):
+        if path.suffix in (".py", ".md", ".toml"):
             with open(path, "r+") as file:
                 content = file.read()
                 content = content.replace(old, new)
@@ -38,7 +38,7 @@ def init_git_and_commit(dest_dir, project_name):
     os.chdir(dest_dir)
     subprocess.run(["git", "init"])
     subprocess.run(["git", "add", "."])
-    subprocess.run(["git", "rm", "--cached", "requirements.txt"])
+    subprocess.run(["git", "rm", "--cached", "pyproject.toml"])
     subprocess.run(["git", "rm", "-r", "--cached", "doc"])
 
     commit_message = f"Init of {project_name}"
@@ -87,6 +87,7 @@ python new.py project_name
     remove(dest_dir, "__pycache__")
     remove(dest_dir, "*.pyc")
     remove(dest_dir, ".git")
+    remove(dest_dir, "Makefile")
     with open(os.path.join(dest_dir, "README.md"), "w") as f:
         f.write("# " + project_name + "\n")
 
