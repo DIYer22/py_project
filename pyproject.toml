@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "py_project"
+version = "0.0.1"
+description = "py_project"
+authors = [
+    {name = "DIYer22", email = "ylxx@live.com"},
+]
+maintainers = [
+    {name = "DIYer22", email = "ylxx@live.com"},
+]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "boxx",
+]
+classifiers = [
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+keywords = ["py_project"]
+
+[project.urls]
+Homepage = "https://github.com/DIYer22/py_project"
+Repository = "https://github.com/DIYer22/py_project"
+Issues = "https://github.com/DIYer22/py_project/issues"
+
+[tool.setuptools]
+packages = ["py_project"]
+include-package-data = true
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "black>=22.0",
+    "isort>=5.0",
+    "flake8>=5.0",
+    "mypy>=1.0",
+]
